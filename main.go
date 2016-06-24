@@ -1,6 +1,6 @@
 /*
 	Some examples from https://projecteuler.net/ in go
-
+	June 2016
 
  */
 
