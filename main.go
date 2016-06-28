@@ -45,6 +45,13 @@ func main() {
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
+	fmt.Println("\n\n\nProblem 5 (Smallest multiple)")
+	fmt.Println("-----------------------------------------------------------------")
+	starttime = time.Now()
+	problem5()
+	endtime = time.Now()
+	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
+
 	fmt.Printf("\n\n")
 }
 
@@ -155,6 +162,27 @@ func problem4() {
 	fmt.Printf("\nThe largest palindrome: %v", largestPalindrome)
 }
 
+
+func problem5() {
+
+	evenlyDivisible := false
+
+	for number := 1; number < 1000000000; number++ {
+		for div:= 1; div <=20; div++ {
+			if number % div == 0 {
+				evenlyDivisible = true
+			} else {
+				evenlyDivisible = false
+				break
+			}
+		}
+
+		if evenlyDivisible {
+			fmt.Printf("\nThe smallest multiple: %v", number)
+			break
+		}
+	}
+}
 
 
 
