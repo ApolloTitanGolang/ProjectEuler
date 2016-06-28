@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"strconv"
 	"time"
+	"math"
 )
 
 func main() {
@@ -48,7 +49,14 @@ func main() {
 	fmt.Println("\n\n\nProblem 5 (Smallest multiple)")
 	fmt.Println("-----------------------------------------------------------------")
 	starttime = time.Now()
-	problem5()
+	// problem5()	// commented because to slow
+	endtime = time.Now()
+	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
+
+	fmt.Println("\n\n\nProblem 6 (Sum square difference)")
+	fmt.Println("-----------------------------------------------------------------")
+	starttime = time.Now()
+	problem6()
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
@@ -184,6 +192,22 @@ func problem5() {
 	}
 }
 
+
+func problem6() {
+	squaresSum := 0.0
+	sumNatural := 0.0
+	sumSquare := 0.0
+
+	for i := 1; i <= 100; i++ {
+		squaresSum += math.Pow(float64(i), 2)
+		sumNatural += float64(i)
+	}
+
+	sumSquare = math.Pow(sumNatural, 2)
+
+	fmt.Printf("\nThe square of the sum (%v) minus the sum of the squares (%v)", sumSquare, squaresSum)
+	fmt.Printf("\n= %v", int(sumSquare - squaresSum))
+}
 
 
 
