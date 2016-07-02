@@ -74,7 +74,7 @@ func main() {
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
-	fmt.Pßrintln("\n\n\nProblem 9 (Special Pythagorean triplet)")
+	fmt.Println("\n\n\nProblem 9 (Special Pythagorean triplet)")
 	fmt.Println("-----------------------------------------------------------------")
 	starttime = time.Now()
 	problem9()
