@@ -49,7 +49,7 @@ func main() {
 	fmt.Println("\n\n\nProblem 5 (Smallest multiple)")
 	fmt.Println("-----------------------------------------------------------------")
 	starttime = time.Now()
-	// problem5()	// commented because to slow
+	// problem5()	// commented because it takes to long
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
@@ -74,10 +74,17 @@ func main() {
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
-	fmt.Println("\n\n\nProblem 9 (Special Pythagorean triplet)")
+	fmt.Pßrintln("\n\n\nProblem 9 (Special Pythagorean triplet)")
 	fmt.Println("-----------------------------------------------------------------")
 	starttime = time.Now()
 	problem9()
+	endtime = time.Now()
+	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
+
+	fmt.Println("\n\n\nProblem 10 (Summation of primes)")
+	fmt.Println("-----------------------------------------------------------------")
+	starttime = time.Now()
+	// problem10()		// commented because it takes to long
 	endtime = time.Now()
 	fmt.Printf("\nDuration: %v", endtime.Sub(starttime))
 
@@ -234,7 +241,7 @@ func problem6() {
 func problem7() {
 	primeList := make([]int, 0, 10001)
 	primeCount := 0
-	number := 1
+	number := 2
 	isPrime := true
 
 	// calculate primes
@@ -243,7 +250,7 @@ func problem7() {
 		number++
 
 		for _, prime := range primeList {
-			if (prime != 1) && (number % prime == 0) {
+			if number % prime == 0 {
 				isPrime = false
 				break
 			}
@@ -335,4 +342,37 @@ func problem9() {
 
 	fmt.Printf("\nTriplet for 1000 is: %v,  %v, %v", a, b, c)
 	fmt.Printf("\nTriplet product: %v", int(p))
+}
+
+
+func problem10() {
+
+	primes := make([]int, 0, 100)
+	number := 2
+	isPrime := true
+	primeSum := 0
+
+	for number < 2000000 {
+		primeSum = 0
+		for _, prime := range primes {
+			if number % prime == 0 {
+				isPrime = false
+				break
+			} else {
+				isPrime = true
+			}
+		}
+		// fmt.Printf("\nslice: %v", primes)
+
+		if isPrime {
+			primes = append(primes, number)
+		}
+		number++
+	}
+
+	for _, prime := range primes {
+		primeSum += prime
+	}
+
+	fmt.Printf("\nSum of all primes below two millions: %v", primeSum)
 }
